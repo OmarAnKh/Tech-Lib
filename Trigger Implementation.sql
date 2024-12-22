@@ -1,11 +1,17 @@
+CREATE TABLE AuditLog(
+	LogID int IDENTITY(1,1) primary key,
+	BookID int Foreign key REFERENCES Books(BookID),
+	[Status change] varchar(10) NOT NULL,
+	[Change Date] date
+)
+
 CREATE TRIGGER BookStatusChangeTrigger
 ON Books
 AFTER UPDATE
 AS
 BEGIN
-    INSERT INTO AuditLog (LogID, BookID, StatusChange, ChangeDate)
+    INSERT INTO AuditLog ( BookID, [Status change], [Change Date])
     SELECT 
-        1,
         i.BookID,
         i.[Current Status],
         GETDATE()
