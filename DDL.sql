@@ -1,0 +1,34 @@
+CREATE DATABASE [Tech Lib];
+
+use [Tech Lib];
+
+CREATE TABLE Books(
+	BookId INT IDENTITY(1,1) PRIMARY KEY,
+	Title VARCHAR(255) NOT NULL,
+	Author VARCHAR(255) NOT NULL,
+	ISBN VARCHAR(20) NOT NULL UNIQUE, 
+	[Published Date] DATE,
+	Genre VARCHAR(255),
+	[Shelf Location] VARCHAR(255),
+	[Current Status] VARCHAR(9) NOT NULL CHECK ([Current Status] IN ('Available', 'Borrowed')),
+	IsDeleted BIT DEFAULT 0 
+);
+
+CREATE TABLE Borrowers(
+	BorrowerID INT IDENTITY(1,1) PRIMARY KEY,
+	[First Name] VARCHAR(255) NOT NULL,
+	[Last Name] VARCHAR(255) NOT NULL,
+	Email VARCHAR(510) NOT NULL UNIQUE,
+	[Date Of Birth] DATE,
+	[Membership Date] DATE NOT NULL,
+	IsDeleted BIT DEFAULT 0 
+);
+
+CREATE TABLE Loans(
+	LoanID INT IDENTITY(1,1) PRIMARY KEY,
+	BookID INT FOREIGN KEY REFERENCES Books(BookID)  ON DELETE NO ACTION ,
+	BorrowerID INT FOREIGN KEY REFERENCES Borrowers(BorrowerID)  ON DELETE NO ACTION,
+	[Date Borrowed] DATE NOT NULL,
+	[Due Date] DATE NOT NULL,
+	[Date Returned] DATE DEFAULT NULL
+);
