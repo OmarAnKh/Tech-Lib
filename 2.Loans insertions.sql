@@ -18,7 +18,7 @@ insert into Loans (BookID, BorrowerID, [Date Borrowed], [Due Date], [Date Return
 insert into Loans (BookID, BorrowerID, [Date Borrowed], [Due Date], [Date Returned]) values (906, 746, '2/10/2025', '10/17/2024', '7/23/2024');
 insert into Loans (BookID, BorrowerID, [Date Borrowed], [Due Date], [Date Returned]) values (8, 224, '7/7/2024', '2/1/2025', '7/1/2024');
 insert into Loans (BookID, BorrowerID, [Date Borrowed], [Due Date], [Date Returned]) values (536, 865, '8/10/2024', '2/22/2025', '7/4/2024');
-insert into Loans (BookID, BorrowerID, [Date Borrowed], [Due Date], [Date Returned]) values (777, 859, '10/9/2024', '12/28/2024', '4/15s/2024');
+insert into Loans (BookID, BorrowerID, [Date Borrowed], [Due Date], [Date Returned]) values (777, 859, '10/9/2024', '12/28/2024', '4/15/2024');
 insert into Loans (BookID, BorrowerID, [Date Borrowed], [Due Date], [Date Returned]) values (716, 593, '8/22/2024', '1/17/2025', '3/18/2025');
 insert into Loans (BookID, BorrowerID, [Date Borrowed], [Due Date], [Date Returned]) values (962, 647, '4/9/2024', '8/14/2024', '3/20/2024');
 insert into Loans (BookID, BorrowerID, [Date Borrowed], [Due Date], [Date Returned]) values (201, 953, '5/23/2024', '7/21/2024', '2/19/2025');
