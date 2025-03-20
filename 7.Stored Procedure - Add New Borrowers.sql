@@ -1,6 +1,6 @@
-DROP PROCEDURE IF EXISTS p_borrower_insert;
+DROP PROCEDURE IF EXISTS sp_AddNewBorrower;
 Go
-CREATE PROCEDURE p_borrower_insert(@First_Name VARCHAR(255), @Last_Name VARCHAR(255), @Email VARCHAR(510),@DateOfBirth DATE, @MembershipDate DATE, @IsDeleted BIT)
+CREATE PROCEDURE sp_AddNewBorrower(@First_Name VARCHAR(255), @Last_Name VARCHAR(255), @Email VARCHAR(510),@DateOfBirth DATE, @MembershipDate DATE, @IsDeleted BIT)
 AS BEGIN
 	SET NOCOUNT ON;
 	BEGIN TRY
@@ -8,11 +8,11 @@ AS BEGIN
 		VALUES (@First_Name, @Last_Name, @Email, @DateOfBirth, @MembershipDate, @IsDeleted)
 	END TRY
 	BEGIN CATCH 
-		SELECT ERROR_NUMBER() AS [Error code], ERROR_MESSAGE();
+		SELECT ERROR_NUMBER() AS [Error code], ERROR_MESSAGE() AS [Error Message];
 	END CATCH
 END;
 
 
 
-EXEC p_borrower_insert 'John', 'Doe', 'johndoe@example.com', '1990-05-15', '2024-03-20', 0;
+EXEC sp_AddNewBorrower 'John', 'Doe', 'johndoe@example.com', '1990-05-15', '2024-03-20', 0;
 SELECT * FROM Borrowers WHERE Email = 'johndoe@example.com';
