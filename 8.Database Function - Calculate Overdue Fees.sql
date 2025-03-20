@@ -1,3 +1,10 @@
+--Database Function - Calculate Overdue Fees:
+--Function Name: fn_CalculateOverdueFees
+--Purpose: Compute overdue fees for a given loan.
+--Parameter: LoanID
+--Implementation: Charge fees based on overdue days: $1/day for up to 30 days, $2/day after.
+--Return: Overdue fee for the LoanID.
+
 CREATE FUNCTION fn_CalculateOverdueFees (@LoanId int)
 RETURNS DECIMAL(10,2) AS
 BEGIN
